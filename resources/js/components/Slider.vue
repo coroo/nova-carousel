@@ -14,7 +14,6 @@
         :minSwipeDistance='minSwipeDistance'
         :perPage='perPage' 
         :scrollPerPage='scrollPerPage' 
-        :speed='speed' 
         
         :navigationClickTargetSize='navigationClickTargetSize'
         :navigationEnabled='navigationEnabled'
@@ -86,9 +85,6 @@ export default {
       },
       scrollPerPage() {
         return this.$attrs.card.options !== undefined && this.$attrs.card.options.scrollPerPage !== undefined ? this.$attrs.card.options.scrollPerPage : false;
-      },
-      speed() {
-        return this.$attrs.card.options !== undefined && this.$attrs.card.options.speed !== undefined ? this.$attrs.card.options.speed : 10;
       },
     
       // NAVIGATION
