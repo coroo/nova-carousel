@@ -28,11 +28,17 @@
         :paginationSize='paginationSize'
        >
         <slide v-for="item in items" :key="item">
-            <h1>{{ item.title }}</h1>
-            <h2>{{ item.heading1 }}</h2>
-            <h3>{{ item.heading2 }}</h3>
-            <h4>{{ item.heading3 }}</h4>
-            <p>{{ item.subtitle }}</p>
+            <div v-for="(subItem, subKey) in item" :key="subItem">
+              <h1 v-html='subItem' v-if="subKey.includes('title') && (subKey.includes('subtitle')===false)"></h1>
+              <h1 v-html='subItem' v-if="subKey.includes('h1')"></h1>
+              <h2 v-html='subItem' v-if="subKey.includes('h2')"></h2>
+              <h3 v-html='subItem' v-if="subKey.includes('h3')"></h3>
+              <p v-html='subItem' v-if="subKey.includes('subtitle')"></p>
+              <p v-html='subItem' v-if="subKey.includes('p') && (subKey.includes('span')===false) && (subKey.includes('padding')===false)"></p>
+              <div v-bind:style="{ padding: subItem + 'px' }" v-if="subKey.includes('padding')"></div>
+              <span v-html='subItem' v-if="subKey.includes('span')"></span>
+            </div>
+            <div v-html='item.customText'></div>
         </slide>
       </carousel>
     </card>
@@ -51,72 +57,74 @@ export default {
             items: this.$attrs.card.card
         };
     },
+    methods: {
+      itemsContains(n) {
+        return this.items.indexOf(n) > -1
+      }
+    },
     computed: {
-      title() {
-        return this.$attrs.card.card[0].title !== undefined ? this.$attrs.card.card[0].title : 'Nova Slider';
-      },
-      subTitle() {
-        return this.title != undefined ? this.title : 'Welcome to Nova Slider documentation for more detail information';
-      },
       themeColor() {
         return 'color-light';
       },
       autoplay() {
-        return this.$attrs.card.options.autoplay !== undefined ? this.$attrs.card.options.autoplay : true;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.autoplay !== undefined ? this.$attrs.card.options.autoplay : true;
       },
       autoplayTimeout() {
-        return this.$attrs.card.options.autoplayTimeout !== undefined ? this.$attrs.card.options.autoplayTimeout : 2000;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.autoplayTimeout !== undefined ? this.$attrs.card.options.autoplayTimeout : 2000;
       },
       autoplayHoverPause() {
-        return this.$attrs.card.options.autoplayHoverPause !== undefined ? this.$attrs.card.options.autoplayHoverPause : true;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.autoplayHoverPause !== undefined ? this.$attrs.card.options.autoplayHoverPause : true;
       },
       easing() {
-        return this.$attrs.card.options.easing !== undefined ? this.$attrs.card.options.easing : 'easing';
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.easing !== undefined ? this.$attrs.card.options.easing : 'ease';
       },
       minSwipeDistance() {
-        return this.$attrs.card.options.minSwipeDistance !== undefined ? this.$attrs.card.options.minSwipeDistance : 8;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.minSwipeDistance !== undefined ? this.$attrs.card.options.minSwipeDistance : 8;
       },
       perPage() {
-        return this.$attrs.card.options.perPage !== undefined ? this.$attrs.card.options.perPage : 1;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.perPage !== undefined ? this.$attrs.card.options.perPage : 1;
       },
       scrollPerPage() {
-        return this.$attrs.card.options.scrollPerPage !== undefined ? this.$attrs.card.options.scrollPerPage : false;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.scrollPerPage !== undefined ? this.$attrs.card.options.scrollPerPage : false;
       },
       speed() {
-        return this.$attrs.card.options.speed !== undefined ? this.$attrs.card.options.speed : 10;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.speed !== undefined ? this.$attrs.card.options.speed : 10;
       },
     
       // NAVIGATION
       navigationEnabled() {
-        return this.$attrs.card.options.navigationEnabled !== undefined ? this.$attrs.card.options.navigationEnabled : false;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.navigationEnabled !== undefined ? this.$attrs.card.options.navigationEnabled : false;
       },
       navigationClickTargetSize() {
-        return this.$attrs.card.options.navigationClickTargetSize !== undefined ? this.$attrs.card.options.navigationClickTargetSize : 8;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.navigationClickTargetSize !== undefined ? this.$attrs.card.options.navigationClickTargetSize : 8;
       },
       navigationNextLabel() {
-        return this.$attrs.card.options.navigationNextLabel !== undefined ? this.$attrs.card.options.navigationNextLabel : "";
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.navigationNextLabel !== undefined ? this.$attrs.card.options.navigationNextLabel : "";
       },
       navigationPrevLabel() {
-        return this.$attrs.card.options.navigationPrevLabel !== undefined ? this.$attrs.card.options.navigationPrevLabel : "";
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.navigationPrevLabel !== undefined ? this.$attrs.card.options.navigationPrevLabel : "";
       },
 
       // PAGINATION
       paginationEnabled() {
-        return this.$attrs.card.options.paginationEnabled !== undefined ? this.$attrs.card.options.paginationEnabled : true;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.paginationEnabled !== undefined ? this.$attrs.card.options.paginationEnabled : true;
       },
       paginationActiveColor() {
-        return this.$attrs.card.options.paginationActiveColor !== undefined ? this.$attrs.card.options.paginationActiveColor : '#FFFFFF';
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.paginationActiveColor !== undefined ? this.$attrs.card.options.paginationActiveColor : '#FFFFFF';
       },
       paginationColor() {
-        return this.$attrs.card.options.paginationColor !== undefined ? this.$attrs.card.options.paginationColor : '#111111';
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.paginationColor !== undefined ? this.$attrs.card.options.paginationColor : '#111111';
       },
       paginationPadding() {
-        return this.$attrs.card.options.paginationPadding !== undefined ? this.$attrs.card.options.paginationPadding : 10;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.paginationPadding !== undefined ? this.$attrs.card.options.paginationPadding : 10;
       },
       paginationSize() {
-        return this.$attrs.card.options.paginationSize !== undefined ? this.$attrs.card.options.paginationSize : 10;
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.paginationSize !== undefined ? this.$attrs.card.options.paginationSize : 10;
       },
     },
+    created() {
+      console.log(this.$attrs.card.card);
+    }
 };
 </script>
 
