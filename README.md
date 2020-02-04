@@ -11,7 +11,7 @@
 - Customizable Carousel in Your Dashboard
 - Open source with Daily Random Quote
 
-See detail at [:blue_book:Documentation Page](https://github.com/coroo/nova-carousel/)
+See detail at [:blue_book:Documentation Page](https:/coroo.github.io/nova-carousel/)
 
 ![img-ss](https://coroo.github.io/nova-carousel/assets/img/nova-carousel-cover.gif)
 
