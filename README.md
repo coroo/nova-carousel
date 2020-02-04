@@ -2,16 +2,16 @@
 
 ## Requirements
 
-This Nova Slider requires `Nova 2.0 or higher`
+This Nova Carousel requires `Nova 2.0 or higher`
 
-![Nova Slider in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/chart-js-integration.gif)
+![Carousel in Action](assets/img/nova-carousel-cover.gif)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require coroowicaksono/nova-slider
+composer require coroowicaksono/nova-carousel
 ```
 
 <!-- panels:start -->
@@ -25,16 +25,16 @@ Open your `App\Providers\NovaServiceProvider.php` as a default dashboard for Lar
 <!-- div:left-panel -->
 
 
-![nova-slider-code](assets/img/nova-slider-code.png)
+![nova-carousel-code](assets/img/nova-carousel-code.png)
 
 Result :
 
-![code-chart-bar](assets/img/nova-slider-dashboard.gif)
+![code-chart-bar](assets/img/nova-carousel-dashboard.gif)
 
 <!-- div:right-panel -->
 
 ```php
-use Coroowicaksono\NovaSlider\Slider;
+use Coroowicaksono\NovaCarousel\Slider;
 ```
 
 ```php
@@ -52,609 +52,128 @@ use Coroowicaksono\NovaSlider\Slider;
 
 <!-- panels:end -->
 
-# Custom Chart
-
-## Stacked Chart
-
-![Slider in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/screenshot-stacked-chart.png)
-
-Include this line to header in your NovaServiceProvider.php
-```php
-use Coroowicaksono\NovaSlider\Slider;
-```
-
-Add this line as return for your `cards` function:
-
-```php
-(new Slider())
-    ->title('Revenue')
-    ->animations([
-        'enabled' => true,
-        'easing' => 'easeinout',
-    ])
-    ->series(array([
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales',
-        'backgroundColor' => '#999',
-        'data' => [80, 90, 80, 40, 62, 79, 79, 90, 90, 90, 92, 91],
-    ],[
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales 2',
-        'backgroundColor' => '#F87900',
-        'data' => [40, 62, 79, 80, 90, 79, 90, 90, 90, 92, 91, 80],
-    ]))
-    ->options([
-        'xaxis' => [
-            'categories' => [ 'Jan', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct' ]
-        ],
-    ])
-    ->width('2/3'),
-```
-
-## Bar Chart
-
-![BarChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/screenshot-bar-chart.png)
-
-Include this line to header in your NovaServiceProvider.php
-```php
-use Coroowicaksono\NovaSlider\BarChart;
-```
-
-Add this line as return for your `cards` function:
-```php
-(new BarChart())
-    ->title('Revenue')
-    ->animations([
-        'enabled' => true,
-        'easing' => 'easeinout',
-    ])
-    ->series(array([
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales',
-        'backgroundColor' => '#999',
-        'data' => [80, 90, 80, 40, 62, 79, 79, 90, 90, 90, 92, 91],
-    ],[
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales 2',
-        'backgroundColor' => '#F87900',
-        'data' => [40, 62, 79, 80, 90, 79, 90, 90, 90, 92, 91, 80],
-    ]))
-    ->options([
-        'xaxis' => [
-            'categories' => [ 'Jan', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct' ]
-        ],
-    ])
-    ->width('2/3'),
-```
-
-## Line Chart
-
-![LineChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/screenshot-line-chart.jpg)
-
-Include this line to header in your NovaServiceProvider.php
-```php
-use Coroowicaksono\NovaSlider\LineChart;
-```
-
-Add this line as return for your `cards` function:
-```php
-(new LineChart())
-    ->title('Revenue')
-    ->animations([
-        'enabled' => true,
-        'easing' => 'easeinout',
-    ])
-    ->series(array([
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales',
-        'borderColor' => '#f7a35c',
-        'data' => [80, 90, 80, 40, 62, 79, 79, 90, 90, 90, 92, 91],
-    ],[
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales #2',
-        'borderColor' => '#90ed7d',
-        'data' => [90, 80, 40, 22, 79, 129, 30, 40, 90, 92, 91, 80],
-    ]))
-    ->options([
-        'xaxis' => [
-            'categories' => [ 'Jan', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct' ]
-        ],
-    ])
-    ->width('2/3'),
-```
-
-## Area Chart
-
-![AreaChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/screenshot-area-chart.jpg)
-
-Include this line to header in your NovaServiceProvider.php
-```php
-use Coroowicaksono\NovaSlider\AreaChart;
-```
-
-Add this line as return for your `cards` function:
-```php
-(new AreaChart())
-    ->title('Revenue')
-    ->animations([
-        'enabled' => true,
-        'easing' => 'easeinout',
-    ])
-    ->series(array([
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales',
-        'backgroundColor' => '#f7a35c',
-        'data' => [80, 90, 80, 40, 62, 79, 79, 90, 90, 90, 92, 91],
-    ],[
-        'barPercentage' => 0.5,
-        'label' => 'Average Sales #2',
-        'backgroundColor' => '#90ed7d',
-        'data' => [90, 80, 40, 22, 79, 129, 30, 40, 90, 92, 91, 80],
-    ]))
-    ->options([
-        'xaxis' => [
-            'categories' => [ 'Jan', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct' ]
-        ],
-    ])
-    ->width('2/3'),
-```
-
-## Doughnut Chart
-
-![DoughnutChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/screenshot-doughnut-chart.jpg)
-
-Include this line to header in your NovaServiceProvider.php
-```php
-use Coroowicaksono\NovaSlider\DoughnutChart;
-```
-
-Add this line as return for your `cards` function:
-```php
-(new DoughnutChart())
-    ->title('Revenue')
-    ->series(array([
-        'data' => [10, 10, 10, 10, 10, 10, 10, 10],
-        'backgroundColor' => ["#ffcc5c","#91e8e1","#ff6f69","#88d8b0","#b088d8","#d8b088", "#88b0d8", "#6f69ff"],
-    ]))
-    ->options([
-        'xaxis' => [
-            'categories' => ['Portion 1','Portion 2','Portion 3','Portion 4','Portion 5','Portion 6','Portion 7','Portion 8']
-        ],
-    ])->width('1/3'),
-```
-
-## Pie Chart
-
-![PieChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/screenshot-pie-chart.jpg)
-
-Include this line to header in your NovaServiceProvider.php
-```php
-use Coroowicaksono\NovaSlider\PieChart;
-```
-
-Add this line as return for your `cards` function:
-```php
-(new PieChart())
-    ->title('Revenue')
-    ->series(array([
-        'data' => [10, 20, 10, 10, 10, 10, 10, 10],
-        'backgroundColor' => ["#ffcc5c","#91e8e1","#ff6f69","#88d8b0","#b088d8","#d8b088", "#88b0d8", "#6f69ff"],
-    ]))
-    ->options([
-        'xaxis' => [
-            'categories' => ['Portion 1','Portion 2','Portion 3','Portion 4','Portion 5','Portion 6','Portion 7','Portion 8']
-        ],
-    ])->width('1/3'),
-```
-
-# Use Laravel Model
-
-We use `created_at` to define the month and year name in categories. So make sure your data consist of this column.
-
-## Simple Chart With Data
-
-![Simple Chart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/simple-with-data.jpg)
-
-> This action available for BarChart, Slider, LineChart and Slider. 
-> For another chart, please use [Custom Column Calculation](#custom-column-calculation)
-
-Add this line to your cards function:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->width('2/3'),
-```
-
-## Custom Column Calculation
-
-![Custom Column Calculation in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/stacked-chart-with-data.jpg)
-
-> This action available for BarChart, Slider, LineChart, Slider, Doughnut Chart and Pie Chart.
-
-Add this line to your cards function:
-```php
-(new BarChart())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->width('2/3'),
-```
-
-## Latest Month
-
-![BarChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/latest-data.jpg)
-
-By Default, if you using chart with data, the chart will only show your 3 latest month. If you want to change count of month that you need to show, use:
-```php
-->options([
-    'latestData' => 6 // in months
-])
-```
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->options([
-        'latestData' => 6 // Show last 6 months data
-    ])
-    ->width('2/3'),
-```
-
-## Use Weekly View
-
-![BarChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/weekly-view.jpg)
-
-By Default, if you using chart with data, the chart will only show your 3 latest month. If you want to use weekly base view, please use:
-```php
-->options([
-    'uom' => 'week', // available in 'day', 'week', 'month'
-])
-``` 
-
-### Set Up Weekly View {docsify-ignore}
-```php
-->options([
-    'uom' => 'week',
-    'startWeek' => '0', // (optional) by Default, starweek start from 0
-    // startWeek 0 - First day of week is Sunday
-    // startWeek 1 - First day of week is Monday and the first week has more than 3 days
-    // startWeek 2 - First day of week is Sunday
-    // startWeek 3 - First day of week is Monday and the first week has more than 3 days
-    // startWeek 4 - First day of week is Sunday and the first week has more than 3 days
-    // startWeek 5 - First day of week is Monday
-    // startWeek 6 - First day of week is Sunday and the first week has more than 3 days
-    // startWeek 7 - First day of week is Monday
-])
-``` 
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->options([
-        'latestData' => 6, // Show last 6 weeks data (optional)
-        'uom' => 'week' // available in 'day', 'week', 'month'
-    ])
-    ->width('2/3'),
-```
-
-## Use Daily View
-
-![BarChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/daily-view.jpg)
-
-For daily base view, please use:
-```php
-->options([
-    'uom' => 'day', // available in 'day', 'week', 'month'
-])
-``` 
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->options([
-        'uom' => 'day' // available in 'day', 'week', 'month'
-    ])
-    ->width('2/3'),
-```
-
-## Custom Background Color
-
-By default, we already define the color for Chart. But you can easily change the hex code by adding this line to your series:
-```php
-'backgroundColor' => '#F87900',
-```
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-        'backgroundColor' => '#F87900', // Add This to change the background color
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->options([
-        'showTotal' => false // Hide Show Total in Your Chart
-    ])
-    ->width('2/3'),
-```
-
-## Hide Total
-
-![BarChart in Action](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/hide-show-total.jpg)
-
-For hide total column in your Chart, please use this option:
-```php
-->options([
-    'showTotal' => false
-])
-```
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->options([
-        'showTotal' => false // Hide Show Total in Your Chart
-    ])
-    ->width('2/3'),
-```
-
-## Adding Condition
-
-For adding condition / filter, e.g. `WHERE` for column in your data, please use this `queryFilter` in `options`:
-```php
-->options([
-    'queryFilter' => array([
-        'key' => 'status',
-        'operator' => '=',
-        'value' => 'success'
-    ],[
-        'key' => 'updated_at',
-        'operator' => 'IS NOT NULL',
-    ])
-])
-```
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->options([
-        'queryFilter' => array([    // add array of filter with this format
-            'key' => 'status',
-            'operator' => '=',
-            'value' => 'success'
-        ],[
-            'key' => 'updated_at',
-            'operator' => 'IS NOT NULL',
-        ])
-    ])
-    ->width('2/3'),
-```
-
-## Sum Calculation
-
-By default, nova-slider will show count of your data.
-If you need to do sum calculation, please use this `sum` in your `options` with the value is your field:
-```php
-->options([
-    'sum' => 'my_sales_column'
-])
-```
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->series(array([
-        'label' => 'Product A',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '1'
-        ],
-    ],[
-        'label' => 'Product B',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '2'
-        ],
-    ],[
-        'label' => 'Product C',
-        'filter' => [
-            'key' => 'product_id', // State Column for Count Calculation Here
-            'value' => '3'
-        ],
-    ]))
-    ->options([
-        'sum' => 'my_sales_column' // Add the column you want to calculate
-    ])
-    ->width('2/3'),
-```
-
-## Add Refresh Button
-
-![Refresh Button](https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/refresh-button.jpg)
-
-To add refresh button for refresh the chart, please use this `btnRefresh` in your `options`:
-```php
-->options([
-    'btnRefresh' => true // default is false
-])
-```
-
-So your card should be like:
-```php
-(new Slider())
-    ->title('Revenue')
-    ->model('\App\Models\Sales') // Use Your Model Here
-    ->options([
-        'btnRefresh' => true
-    ])
-    ->width('2/3'),
-```
+# Configuration
+
+autoplay
+Flag to enable autoplay
+
+Type: Boolean
+Default: false
+autoplayTimeout
+Time elapsed before advancing slide
+
+Type: Number
+Default: 2000
+autoplayHoverPause
+Flag to pause autoplay on hover
+
+Type: Boolean
+Default: false
+easing
+Transition speed between slides. Any valid CSS transition easing is accepted.
+
+Type: String
+Default: ease
+minSwipeDistance
+Minimum distance in pixels to swipe before a slide advance is triggered
+
+Type: Number
+Default: 8
+perPage
+Maximum number of slides displayed on each page
+
+Type: Number
+Default: 2
+perPageCustom
+Configure the number of visible slides for responsive breakpoints.
+
+This will be an array of arrays. Each array is formatted as [x, y] where x is the browser width, and y is the number of slides displayed.
+
+Type: Array
+Usage:
+1
+<carousel :perPageCustom="[[768, 3], [1024, 4]]">
+A mobile-first strategy is used to determine the matching breakpoint. In the above example, the perPage variable has not been set, so the default of 2 is used. If the window size is greater than or equal to 768px, then 3 slides are shown. If the width is greater than or equal to 1024, then 4 slides are shown.
+
+scrollPerPage
+Scroll per page, not per item.
+
+Type: Boolean
+Default: false
+speed
+Size of each pagination dot. Pixel values are accepted.
+
+Type Number
+Default: 10
+Navigation
+Configure the navigation component (next/prev buttons)
+
+navigationClickTargetSize
+Amount of padding to apply around the label in pixels
+
+Type: Number
+Default: 8
+navigationEnabled
+Type: Boolean
+Default: false
+navigationNextLabel
+Text content of the navigation next button
+
+Type: String
+Default: ▶
+navigationPrevLabel
+Text content of the navigation prev button
+
+Type: String
+Default: ◀
+Pagination
+Configure the pagination component (clickable page dots)
+
+paginationEnabled
+Type: Boolean
+Default: true
+paginationActiveColor
+The fill color of the active pagination dot. Any valid CSS color is accepted.
+
+Type: String
+Default: #000000
+paginationColor
+The fill color of pagination dots. Any valid CSS color is accepted.
+
+Type: String
+Default: #efefef
+paginationPadding
+The padding inside each pagination dot. Pixel values are accepted.
+
+Type: Number
+Default: 10
+paginationSize
+The size of each pagination dot. Pixel values are accepted.
+
+Type: Number
+Default: 10
 
 # More Reference 
 
-[ChartJS Documentation](https://www.chartjs.org/docs/latest/)
-| [Vue-ChartJS Documentation](https://vue-chartjs.org/guide/)
+[Vue-Carousel](https://ssense.github.io/vue-carousel/api/)
 
 # Issue 
 
-For any issue, we capture it in [HERE](https://github.com/coroo/nova-chartjs/issues).
+For any issue, we capture it in [HERE](https://github.com/coroo/nova-carousel/issues).
 
 # ChangeLog
 
-Please see [CHANGELOG](https://github.com/coroo/nova-chartjs/blob/master/CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](https://github.com/coroo/nova-carousel/blob/master/CHANGELOG.md) for more information on what has changed recently.
 
 # Suport Us
 
-<a href="https://www.buymeacoffee.com/coroowicaksono" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-red.png" alt="Buy Us A Coffee" style="margin-right:20px; height: 51px !important;width: 217px !important;" ></a> Or rate us <a href="https://github.com/coroo/nova-chartjs/stargazers"><img src="https://img.shields.io/github/stars/coroo/nova-chartjs?style=social" style="margin-left:10px;box-shadow:none;border-radius:0;height:24px"></a>
+<a href="https://www.buymeacoffee.com/coroowicaksono" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-red.png" alt="Buy Us A Coffee" style="margin-right:20px; height: 51px !important;width: 217px !important;" ></a> Or rate us <a href="https://github.com/coroo/nova-carousel/stargazers"><img src="https://img.shields.io/github/stars/coroo/nova-carousel?style=social" style="margin-left:10px;box-shadow:none;border-radius:0;height:24px"></a>
 
 # Contribute
 
-Be one of our contributor at [contributor](https://github.com/coroo/nova-chartjs/blob/master/CONTRIBUTING.md).
+Be one of our contributor at [contributor](https://github.com/coroo/nova-carousel/blob/master/CONTRIBUTING.md).
 
 # License
 
-The MIT License (MIT). Please see [License File](https://github.com/coroo/nova-chartjs/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/coroo/nova-carousel/blob/master/LICENSE) for more information.
 

@@ -1,18 +1,18 @@
-![logo](assets/logo/chartjs-logo.svg)
+![logo](assets/logo/nova-carousel.svg)
 
-# Nova Slider
+# Nova Carousel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/coroowicaksono/nova-slider)](https://packagist.org/packages/coroowicaksono/nova-slider)
-[![Total Downloads](https://img.shields.io/packagist/dt/coroowicaksono/nova-slider)](https://packagist.org/packages/coroowicaksono/nova-slider)
-[![License](https://img.shields.io/packagist/l/coroowicaksono/nova-slider)](https://github.com/coroo/nova-chartjs/blob/master/LICENSE)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/coroowicaksono/nova-carousel)](https://packagist.org/packages/coroowicaksono/nova-carousel)
+[![Total Downloads](https://img.shields.io/packagist/dt/coroowicaksono/nova-carousel)](https://packagist.org/packages/coroowicaksono/nova-carousel)
+[![License](https://img.shields.io/packagist/l/coroowicaksono/nova-carousel)](https://github.com/coroo/nova-chartjs/blob/master/LICENSE)
 
-> A Laravel Nova Dashboard Slider
+> A Laravel Nova Dashboard Carousel
 
-- Customizable Slider in Your Dashboard
+- Customizable Carousel in Your Dashboard
 <!-- - Simple Connection with your <b>Laravel Model</b> -->
 - Open source with Daily Random Quote
 
-[GitHub](https://github.com/coroo/nova-slider/)
+[GitHub](https://github.com/coroo/nova-carousel/)
 [Get Started](#getting-started)
 
 ![color](#EFEFEF)
