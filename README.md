@@ -52,7 +52,52 @@ use Coroowicaksono\NovaCarousel\Slider;
 
 <!-- panels:end -->
 
+# Typography
+By default, we using title, subtitle, heading etc for the key of each element. So you can easily using it in your card. Let say, you need to have `big title`, you can use:
+```php
+(new Slider())
+    ->card(array([
+        'title' => 'First Title',
+    ],[
+        'title' => 'Second Title',
+    ],[
+        'title' => 'Third Title',
+    ])),
+```
+Available typo list:
+```
+title    : title
+subtitle : subtitle
+h1       : heading 1
+h2       : heading 2
+h3       : heading 3 
+span     : span
+```
+Or you can use `customText` for any HTML typography.
+```php
+(new Slider())
+    ->card(array([
+        'customText' => '<h1>First Title</h1>',
+    ])),
+```
+
 # Configuration
+
+You can easily using `options` to add some configuration.
+```php
+(new Slider())
+    ->card(array([
+        'p'  => 'Hi, '.\Auth::user()->name,
+        'h2' => 'Welcome to Laravel Nova',
+    ],[
+        'show-quote' => true,
+    ],[
+        'show-quote' => true,
+    ]))
+    ->options([
+        'theme' => 'bg-4' // add some configuration here
+    ]),
+```
 
 ## Basic Configuration
 Some basic configuration can be found here:
@@ -85,7 +130,7 @@ Default: `8`
 ### perPage
 Maximum number of slides displayed on each page<br/>
 Type: `Number`<br/>
-Default: `2`
+Default: `1`
 
 ### scrollPerPage
 Scroll per page, not per item.<br/>
@@ -141,6 +186,26 @@ The size of each pagination dot. Pixel values are accepted.<br/>
 Type: `Number`<br/>
 Default: `10`
 
+## Style Configuration
+More about style configuration can be found here:
+
+### theme
+The background color for each card.<br/>
+Type: `String`<br/>
+Default: `bg-1`<br/>
+
+Available list:
+```css
+.bg-1 : evening sunshine
+.bg-2 : lush
+.bg-3 : deep space
+.bg-4 : dark skies
+.bg-5 : suzy
+.bg-6 : superman
+.bg-7 : nighthawk
+.bg-8 : forest
+.bg-9 : yoda
+```
 # More Reference 
 
 [Vue-Carousel](https://ssense.github.io/vue-carousel/api/)
@@ -164,4 +229,10 @@ Be one of our contributor at [contributor](https://github.com/coroo/nova-carouse
 # License
 
 The MIT License (MIT). Please see [License File](https://github.com/coroo/nova-carousel/blob/master/LICENSE) for more information.
+
+# Another Related Products 
+
+<p align="center">
+  <a href="https://coroo.github.io/nova-chartjs/"><img width="460" src="https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/chart-js-integration.gif"><br/>Nova Chart-JS</a>
+</p>
 
