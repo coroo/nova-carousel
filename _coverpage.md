@@ -4,7 +4,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/coroowicaksono/nova-carousel)](https://packagist.org/packages/coroowicaksono/nova-carousel)
 [![Total Downloads](https://img.shields.io/packagist/dt/coroowicaksono/nova-carousel)](https://packagist.org/packages/coroowicaksono/nova-carousel)
-[![License](https://img.shields.io/packagist/l/coroowicaksono/nova-carousel)](https://github.com/coroo/nova-chartjs/blob/master/LICENSE)
+[![License](https://img.shields.io/packagist/l/coroowicaksono/nova-carousel)](https://github.com/coroo/nova-carousel/blob/master/LICENSE)
 
 > A Laravel Nova Dashboard Carousel
 

@@ -54,104 +54,92 @@ use Coroowicaksono\NovaCarousel\Slider;
 
 # Configuration
 
-autoplay
-Flag to enable autoplay
+## Basic Configuration
+Some basic configuration can be found here:
 
-Type: Boolean
-Default: false
-autoplayTimeout
-Time elapsed before advancing slide
+### autoplay
+Flag to enable autoplay<br/>
+Type: `Boolean`<br/>
+Default: `true`
 
-Type: Number
-Default: 2000
-autoplayHoverPause
-Flag to pause autoplay on hover
+### autoplayTimeout
+Time elapsed before advancing slide<br/>
+Type: `Number`<br/>
+Default: `2000`
 
-Type: Boolean
-Default: false
-easing
-Transition speed between slides. Any valid CSS transition easing is accepted.
+### autoplayHoverPause
+Flag to pause autoplay on hover<br/>
+Type: `Boolean`<br/>
+Default: `true`
 
-Type: String
-Default: ease
-minSwipeDistance
-Minimum distance in pixels to swipe before a slide advance is triggered
+### easing
+Transition speed between slides. Any valid CSS transition easing is accepted.<br/>
+Type: `String`<br/>
+Default: `ease`
 
-Type: Number
-Default: 8
-perPage
-Maximum number of slides displayed on each page
+### minSwipeDistance
+Minimum distance in pixels to swipe before a slide advance is triggered<br/>
+Type: `Number`<br/>
+Default: `8`
 
-Type: Number
-Default: 2
-perPageCustom
-Configure the number of visible slides for responsive breakpoints.
+### perPage
+Maximum number of slides displayed on each page<br/>
+Type: `Number`<br/>
+Default: `2`
 
-This will be an array of arrays. Each array is formatted as [x, y] where x is the browser width, and y is the number of slides displayed.
+### scrollPerPage
+Scroll per page, not per item.<br/>
+Type: `Boolean`<br/>
+Default: `false`
 
-Type: Array
-Usage:
-1
-<carousel :perPageCustom="[[768, 3], [1024, 4]]">
-A mobile-first strategy is used to determine the matching breakpoint. In the above example, the perPage variable has not been set, so the default of 2 is used. If the window size is greater than or equal to 768px, then 3 slides are shown. If the width is greater than or equal to 1024, then 4 slides are shown.
-
-scrollPerPage
-Scroll per page, not per item.
-
-Type: Boolean
-Default: false
-speed
-Size of each pagination dot. Pixel values are accepted.
-
-Type Number
-Default: 10
-Navigation
+## Navigation
 Configure the navigation component (next/prev buttons)
 
-navigationClickTargetSize
-Amount of padding to apply around the label in pixels
+### navigationEnabled
+Type:<br/>
+Default: `false`
 
-Type: Number
-Default: 8
-navigationEnabled
-Type: Boolean
-Default: false
-navigationNextLabel
-Text content of the navigation next button
+### navigationClickTargetSize
+Amount of padding to apply around the label in pixels<br/>
+Type: `Number`<br/>
+Default: `8`
 
-Type: String
-Default: ▶
-navigationPrevLabel
-Text content of the navigation prev button
+### navigationNextLabel
+Text content of the navigation next button<br/>
+Type: `String`<br/>
+Default: `▶`
 
-Type: String
-Default: ◀
-Pagination
-Configure the pagination component (clickable page dots)
+### navigationPrevLabel
+Text content of the navigation prev button<br/>
+Type: `String`<br/>
+Default: `◀`
 
-paginationEnabled
-Type: Boolean
-Default: true
-paginationActiveColor
-The fill color of the active pagination dot. Any valid CSS color is accepted.
+## Pagination
 
-Type: String
-Default: #000000
-paginationColor
-The fill color of pagination dots. Any valid CSS color is accepted.
+### paginationEnabled
+Configure the pagination component (clickable page dots)<br/>
+Type: `Boolean`<br/>
+Default: `true`
 
-Type: String
-Default: #efefef
-paginationPadding
-The padding inside each pagination dot. Pixel values are accepted.
+### paginationActiveColor
+The fill color of the active pagination dot. Any valid CSS color is accepted.<br/>
+Type: `String`<br/>
+Default: `#000000`
 
-Type: Number
-Default: 10
-paginationSize
-The size of each pagination dot. Pixel values are accepted.
+### paginationColor
+The fill color of pagination dots. Any valid CSS color is accepted.<br/>
+Type: `String`<br/>
+Default: `#efefef`
 
-Type: Number
-Default: 10
+### paginationPadding
+The padding inside each pagination dot. Pixel values are accepted.<br/>
+Type: `Number`<br/>
+Default: `10`
+
+### paginationSize
+The size of each pagination dot. Pixel values are accepted.<br/>
+Type: `Number`<br/>
+Default: `10`
 
 # More Reference 
 
