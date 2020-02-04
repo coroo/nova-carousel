@@ -1,46 +1,52 @@
 <template>
-    <card class="bg-1 pd-1" :class='themeColor'>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-      <div class="stay-right" v-show="buttonRefresh">
-        <button @click="fillData()" class="btn-refresh">
-          <i class="fas fa-sync"></i>
-        </button>
-      </div>
-      <carousel 
-        :autoplay='autoplay' 
-        :autoplayTimeout='autoplayTimeout' 
-        :autoplayHoverPause='autoplayHoverPause' 
-        :easing='easing' 
-        :minSwipeDistance='minSwipeDistance'
-        :perPage='perPage' 
-        :scrollPerPage='scrollPerPage' 
-        
-        :navigationClickTargetSize='navigationClickTargetSize'
-        :navigationEnabled='navigationEnabled'
-        :navigationNextLabel='navigationNextLabel'
-        :navigationPrevLabel='navigationPrevLabel'
-        
-        :paginationEnabled='paginationEnabled'
-        :paginationActiveColor='paginationActiveColor'
-        :paginationColor='paginationColor'
-        :paginationPadding='paginationPadding'
-        :paginationSize='paginationSize'
-       >
-        <slide v-for="item in items" :key="item">
-            <div v-for="(subItem, subKey) in item" :key="subItem">
-              <h1 v-html='subItem' v-if="subKey.includes('title') && (subKey.includes('subtitle')===false)"></h1>
-              <h1 v-html='subItem' v-if="subKey.includes('h1')"></h1>
-              <h2 v-html='subItem' v-if="subKey.includes('h2')"></h2>
-              <h3 v-html='subItem' v-if="subKey.includes('h3')"></h3>
-              <p v-html='subItem' v-if="subKey.includes('subtitle')"></p>
-              <p v-html='subItem' v-if="subKey.includes('p') && (subKey.includes('span')===false) && (subKey.includes('padding')===false)"></p>
-              <div v-bind:style="{ padding: subItem + 'px' }" v-if="subKey.includes('padding')"></div>
-              <span v-html='subItem' v-if="subKey.includes('span')"></span>
+  <card class="bg-1 pd-1" :class='themeColor'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <div class="stay-right" v-show="buttonRefresh">
+      <button @click="fillData()" class="btn-refresh">
+        <i class="fas fa-sync"></i>
+      </button>
+    </div>
+    <carousel 
+      v-bind:style="customStyle"
+      :autoplay='autoplay' 
+      :autoplayTimeout='autoplayTimeout' 
+      :autoplayHoverPause='autoplayHoverPause' 
+      :easing='easing' 
+      :minSwipeDistance='minSwipeDistance'
+      :perPage='perPage' 
+      :scrollPerPage='scrollPerPage' 
+      
+      :navigationClickTargetSize='navigationClickTargetSize'
+      :navigationEnabled='navigationEnabled'
+      :navigationNextLabel='navigationNextLabel'
+      :navigationPrevLabel='navigationPrevLabel'
+      
+      :paginationEnabled='paginationEnabled'
+      :paginationActiveColor='paginationActiveColor'
+      :paginationColor='paginationColor'
+      :paginationPadding='paginationPadding'
+      :paginationSize='paginationSize'
+      >
+      <slide v-for="(item) in items" :key="item">
+          <div v-for="(subItem, subKey) in item" :key="subItem">
+            <div v-if="subKey.includes('quote')">
+              <p v-if="subItem.content">{{subItem.content}}</p>
+              <p v-if="subItem.author" style="margin-top:5px">~ {{subItem.author}}</p>
             </div>
-            <div v-html='item.customText'></div>
-        </slide>
-      </carousel>
-    </card>
+
+            <h1 v-html='subItem' v-if="subKey.includes('title') && (subKey.includes('subtitle')===false)"></h1>
+            <h1 v-html='subItem' v-if="subKey.includes('h1')"></h1>
+            <h2 v-html='subItem' v-if="subKey.includes('h2')"></h2>
+            <h3 v-html='subItem' v-if="subKey.includes('h3')"></h3>
+            <p v-html='subItem' v-if="subKey.includes('subtitle')"></p>
+            <p v-html='subItem' v-if="subKey.includes('p') && (subKey.includes('span')===false) && (subKey.includes('padding')===false)"></p>
+            <div v-bind:style="{ padding: subItem + 'px' }" v-if="subKey.includes('padding')"></div>
+            <span v-html='subItem' v-if="subKey.includes('span')"></span>
+          </div>
+          <div v-html='item.customText'></div>
+      </slide>
+    </carousel>
+  </card>
 </template>
 
 <script>
@@ -52,14 +58,34 @@ export default {
       Slide
     },
     data() {
-        return {
-            items: this.$attrs.card.card
-        };
+      return {
+        quoteCounter: 0,
+        items: this.$attrs.card.card,
+        customStyle: this.$attrs.card.options !== undefined && this.$attrs.card.options.customStyle !== undefined ? this.$attrs.card.options.customStyle : false,
+        quotes: null,
+      };
     },
     methods: {
-      itemsContains(n) {
-        return this.items.indexOf(n) > -1
-      }
+      async handleQuote(idx) {
+        this.quotes = [];
+        let getQuote = await axios
+          .get('https://api.quotable.io/random')
+          .then(response => {
+            return response.data;
+          });
+
+        let duplicate = [...this.items];
+        duplicate[idx].quote = getQuote;
+        this.items = duplicate;
+      },
+    },
+    async mounted () {
+      let getIndex =[];
+      let aaaa = await this.items.forEach((obj, index) => {
+        if(obj['show-quote']) {
+          let getData = this.handleQuote(index);
+        }
+      });
     },
     computed: {
       themeColor() {
@@ -119,14 +145,17 @@ export default {
       },
     },
     created() {
-      console.log(this.$attrs.card.card);
+      // console.log(this.$attrs.card.card);
     }
 };
 </script>
 
 <style> 
   .pd-1 {
-    padding: 1rem 1.5rem 2px;
+    padding: 1rem 1.5rem 10px;
+  }
+  .VueCarousel-pagination {
+    margin-top: -1rem;
   }
   .bg-1 {  
     background: linear-gradient(to right, #b92b27, #1565C0);
