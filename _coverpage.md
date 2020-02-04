@@ -9,7 +9,6 @@
 > A Laravel Nova Dashboard Carousel
 
 - Customizable Carousel in Your Dashboard
-<!-- - Simple Connection with your <b>Laravel Model</b> -->
 - Open source with Daily Random Quote
 
 [GitHub](https://github.com/coroo/nova-carousel/)
