@@ -1,5 +1,5 @@
 <template>
-  <card class="bg-1 pd-1" :class='themeColor'>
+  <card class="pd-1" :class='[themeColor, bgColor]'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <div class="stay-right" v-show="buttonRefresh">
       <button @click="fillData()" class="btn-refresh">
@@ -91,6 +91,9 @@ export default {
       themeColor() {
         return 'color-light';
       },
+      bgColor() {
+        return this.$attrs.card.options !== undefined && this.$attrs.card.options.theme !== undefined ? this.$attrs.card.options.theme : 'bg-1' ;
+      },
       autoplay() {
         return this.$attrs.card.options !== undefined && this.$attrs.card.options.autoplay !== undefined ? this.$attrs.card.options.autoplay : true;
       },
@@ -158,7 +161,31 @@ export default {
     margin-top: -1rem;
   }
   .bg-1 {  
-    background: linear-gradient(to right, #b92b27, #1565C0);
+    background: linear-gradient(to right, #b92b27, #1565C0); /* evening sunshine */
+  }
+  .bg-2 {  
+    background: linear-gradient(to right, #56ab2f, #a8e063); /* lush */
+  }
+  .bg-3 {  
+    background: linear-gradient(to right, #000000, #434343); /* deep space */
+  }
+  .bg-4 {  
+    background: linear-gradient(to right, #4B79A1, #283E51); /* dark skies */
+  }
+  .bg-5 {  
+    background: linear-gradient(to right, #834d9b, #d04ed6); /* suzy */
+  }
+  .bg-6 {  
+    background: linear-gradient(to right, #0099F7, #F11712); /* superman */
+  }
+  .bg-7 {  
+    background: linear-gradient(to right, #2980b9, #2c3e50); /* nighthawk */
+  }
+  .bg-8 {  
+    background: linear-gradient(to right, #5A3F37, #2C7744); /* forest */
+  }
+  .bg-9 {  
+    background: linear-gradient(to right, #FF0099, #493240); /* yoda */
   }
   .color-light {  
     color: #FFF;
