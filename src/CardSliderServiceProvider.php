@@ -7,7 +7,7 @@ use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Route;
 
-class CardServiceProvider extends ServiceProvider
+class CardSliderServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.

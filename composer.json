@@ -21,14 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Coroowicaksono\\NovaSlider\\": "src/",
-            "Coroowicaksono\\NovaSlider\\Api\\": "src/api"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Coroowicaksono\\NovaSlider\\CardServiceProvider"
+                "Coroowicaksono\\NovaSlider\\CardSliderServiceProvider"
             ]
         }
     },
