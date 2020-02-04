@@ -21,6 +21,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Coroowicaksono\\NovaSlider\\": "src/"
         }
     },
     "extra": {
