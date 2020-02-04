@@ -1,6 +1,6 @@
 <?php
 
-namespace Coroowicaksono\NovaSlider\Api;
+namespace Coroowicaksono\NovaCarousel\Api;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;

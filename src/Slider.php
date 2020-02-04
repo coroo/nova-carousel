@@ -1,6 +1,6 @@
 <?php
 
-namespace Coroowicaksono\NovaSlider;
+namespace Coroowicaksono\NovaCarousel;
 
 use Laravel\Nova\Card;
 

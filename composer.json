@@ -1,10 +1,11 @@
 {
-    "name": "coroowicaksono/nova-slider",
-    "description": "A Simple Slider Card in Laravel Nova's Dashboard using Vue-Caraosel. Starting create your own dashboard with Nova Slider can save your time and help you maintain consistency across cool elements of your cards.",
+    "name": "coroowicaksono/nova-carousel",
+    "description": "A Simple Slider Card in Laravel Nova's Dashboard using Vue-Caraosel. Starting create your own dashboard with Nova Carousel can save your time and help you maintain consistency across cool elements of your cards.",
     "keywords": [
         "laravel",
         "nova",
         "slider",
+        "carousel",
         "card"
     ],
     "license": "MIT",
@@ -21,14 +22,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Coroowicaksono\\NovaSlider\\": "src/",
-            "Coroowicaksono\\NovaSlider\\Api\\": "src/api"
+            "Coroowicaksono\\NovaCarousel\\": "src/",
+            "Coroowicaksono\\NovaCarousel\\Api\\": "src/api"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Coroowicaksono\\NovaSlider\\CardServiceProvider"
+                "Coroowicaksono\\NovaCarousel\\CardServiceProvider"
             ]
         }
     },
