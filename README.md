@@ -2,7 +2,7 @@
 
 ![logo](https://coroo.github.io/nova-carousel/assets/logo/nova-carousel.svg)
 
-> A Laravel Nova Carousel | See [:blue_book:Documentation Page](https://coroo.github.io/nova-chartjs/)
+> A Laravel Nova Carousel | See [:blue_book:Documentation Page](https://coroo.github.io/nova-carousel/)
 
 - Customizable Carousel in Your Dashboard
 - Open source with Daily Random Quote
