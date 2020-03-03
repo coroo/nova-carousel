@@ -22,8 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Coroowicaksono\\NovaCarousel\\": "src/",
-            "Coroowicaksono\\NovaCarousel\\Api\\": "src/api"
+            "Coroowicaksono\\NovaCarousel\\": "src/"
         }
     },
     "extra": {
