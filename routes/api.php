@@ -11,5 +11,3 @@ use Illuminate\Support\Facades\Route;
 | as many additional routes to this file as your card may require.
 |
 */
-Route::get('/endpoint', \Coroowicaksono\NovaCarousel\Api\TotalRecordsController::class . '@handle');
-Route::get('/circle-endpoint', \Coroowicaksono\NovaCarousel\Api\TotalCircleController::class . '@handle');
