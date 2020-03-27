@@ -233,6 +233,6 @@ The MIT License (MIT). Please see [License File](https://github.com/coroo/nova-c
 # Another Related Products 
 
 <p align="center">
-  <a href="https://coroo.github.io/nova-chartjs/"><img width="460" src="https://raw.githubusercontent.com/coroo/nova-chartjs/master/resources/img/chart-js-integration.gif"><br/>Nova Chart-JS</a>
+  <a href="https://coroo.github.io/nova-chartjs/"><img width="460" src="https://raw.githubusercontent.com/coroo/nova-chartjs/gh-pages/assets/img/chart-js-integration.gif"><br/>Nova Chart-JS</a>
 </p>
 
