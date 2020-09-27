@@ -1,6 +1,4 @@
-# Nova Carousel - Laravel Nova Package
-
-![logo](https://coroo.github.io/nova-carousel/assets/logo/nova-carousel.svg)
+# Nova Carousel - Laravel Nova Package <img src="https://coroo.github.io/nova-carousel/assets/logo/nova-carousel.svg" width=50>
 
 > A Laravel Nova Carousel | See [:blue_book:Documentation Page](https://coroo.github.io/nova-carousel/)
 
