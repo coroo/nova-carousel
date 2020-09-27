@@ -9,6 +9,8 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/coroowicaksono/nova-carousel)](https://packagist.org/packages/coroowicaksono/nova-carousel)
 [![Total Downloads](https://img.shields.io/packagist/dt/coroowicaksono/nova-carousel)](https://packagist.org/packages/coroowicaksono/nova-carousel)
+[![Language](https://img.shields.io/github/languages/top/coroo/nova-carousel)](https://packagist.org/packages/coroowicaksono/nova-carousel)
+[![State Status](https://img.shields.io/github/deployments/coroo/nova-carousel/github-pages)](https://packagist.org/packages/coroowicaksono/nova-carousel)
 [![License](https://img.shields.io/packagist/l/coroowicaksono/nova-carousel)](https://github.com/coroo/nova-carousel/blob/master/LICENSE)
 
 ![img-ss](https://coroo.github.io/nova-carousel/assets/img/nova-carousel-cover.gif)
